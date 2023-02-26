@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // Contact.html Form Validation 
-
-const form = document.querySelector("#contactForm");
+/*
+const form = document.querySelector("#submitButton");
 const firstName = document.querySelector("#firstName");
 const subject = document.querySelector("#subject");
 const email = document.querySelector("#email");
@@ -76,11 +76,41 @@ form.addEventListener("submit", function(event) {
 
     // submit if no errors
     if (!nameError.style.display && !subjectError.style.display && !emailError.style.display && !addressError.style.display) {
-        form.submit();
         alert("Message sent!");
+        return true;
+    } else {
+        return false;
     }
 });
 
 form.addEventListener("input", function() {
     sendButton.disabled = !form.checkValidity();
 });
+
+*/
+
+
+// Random Postcard Generator
+const content = document.getElementById("content")
+const imageBtn = document.getElementById("btn")
+
+imageBtn.addEventListener("click", fetchcontent);
+
+function fetchcontent() {
+    let clientID = "Xe5ZOVQDnEw6ksMMsanWY9E2OGfTqhGJpu3HAaVNXMg";
+    let endpoint = `https://api.unsplash.com/photos/random/?client_id=${clientID}`;
+
+    let landmark = document.querySelector("#landmark");
+    let unsplashLink = document.querySelector("#unsplashLink")
+
+    fetch(endpoint)
+    .then((Response) => Response.json())
+    .then((jsonData) => {
+        landmark.src = jsonData.urls.regular;
+        unsplashLink.setAttribute("href", jsonData.links.html);
+    })
+    .catch((error) => {
+        console.log("Error in the API" + error);
+    });
+
+}
