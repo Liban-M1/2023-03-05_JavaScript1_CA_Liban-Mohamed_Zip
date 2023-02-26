@@ -74,7 +74,6 @@ header h1, p{
     height: 400px;
     border: 2px solid #bc785b;
     margin-bottom: 30px;
-    background-image: url(/images/PostageStamps.jpeg);
     background-size: contain;
 }
 

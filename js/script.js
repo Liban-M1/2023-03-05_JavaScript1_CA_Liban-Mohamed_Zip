@@ -91,26 +91,5 @@ form.addEventListener("input", function() {
 
 
 // Random Postcard Generator
-const content = document.getElementById("content")
-const imageBtn = document.getElementById("btn")
 
-imageBtn.addEventListener("click", fetchcontent);
 
-function fetchcontent() {
-    let clientID = "Xe5ZOVQDnEw6ksMMsanWY9E2OGfTqhGJpu3HAaVNXMg";
-    let endpoint = `https://api.unsplash.com/photos/random/?client_id=${clientID}`;
-
-    let landmark = document.querySelector("#landmark");
-    let unsplashLink = document.querySelector("#unsplashLink")
-
-    fetch(endpoint)
-    .then((Response) => Response.json())
-    .then((jsonData) => {
-        landmark.src = jsonData.urls.regular;
-        unsplashLink.setAttribute("href", jsonData.links.html);
-    })
-    .catch((error) => {
-        console.log("Error in the API" + error);
-    });
-
-}
