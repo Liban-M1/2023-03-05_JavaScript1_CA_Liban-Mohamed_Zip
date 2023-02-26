@@ -5,13 +5,12 @@
 // Home Button
 document.addEventListener("DOMContentLoaded", function() {
 
-
-    var btn = document.getElementById("btn");
-    var newBtnCreated = false;
+    const btn = document.getElementById("btn");
+    let newBtnCreated = false;
 
     btn.addEventListener("click", function() {
     if (!newBtnCreated) {
-    var newBtn = document.createElement("button");
+    const newBtn = document.createElement("button");
 
     newBtn.id = 'newBtn';
     newBtn.className = "homebtn";
@@ -20,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.body.appendChild(newBtn);
 
-    var postCardDiv = document.querySelector(".post-card .content");
+    const postCardDiv = document.querySelector(".post-card .content");
     postCardDiv.appendChild(newBtn)
 
     newBtnCreated = true;
