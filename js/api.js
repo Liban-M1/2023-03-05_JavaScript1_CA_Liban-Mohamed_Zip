@@ -1,11 +1,11 @@
 const requestUrl = "https://api.unsplash.com/search/photos?query=landmark&client_id=Xe5ZOVQDnEw6ksMMsanWY9E2OGfTqhGJpu3HAaVNXMg";
 
-const getBtn = document.querySelector("btn");
-const landmarkDisplay = document.querySelector("content");
+const getBtn = document.querySelector(".homebtn");
+const landmarkDisplay = document.querySelector(".content img");
 
 getBtn.addEventListener("click", async () => {
     let randomLandmark = await getNewLandmark();
-    landmarkDisplay.scr = randomLandmark;
+    landmarkDisplay.src = randomLandmark;
 });
 
 async function getNewLandmark() {
