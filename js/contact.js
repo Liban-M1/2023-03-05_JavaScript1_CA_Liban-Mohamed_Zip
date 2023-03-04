@@ -46,9 +46,9 @@ form.addEventListener("submit", function(event) {
     }
 
     // submit if no errors
-    if (!nameError.style.display && !subjectError.style.display && !emailError.style.display && !addressError.style.display) {
-        form.submit();
-        alert("Message sent!");
+    if (nameError.style.display === "none" && subjectError.style.display === "none" && emailError.style.display === "none" && addressError.style.display === "none") {
+        alert("Message Successfully Sent!");
+        form.reset();
     }
 });
 
