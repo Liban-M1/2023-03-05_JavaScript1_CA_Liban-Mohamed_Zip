@@ -72,7 +72,7 @@ header h1, p{
 .landmark {
     width: 520px;
     height: 285px;
-    border: 2px solid #bc785b;
+    border: 4px solid #bc785b;
     margin-bottom: 30px;
     background-size: contain;
 }

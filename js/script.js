@@ -2,7 +2,7 @@
 
 
 
-// Home Button
+// Home Buttons
 document.addEventListener("DOMContentLoaded", function() {
 
     const btn = document.getElementById("btn");
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (!newBtnCreated) {
     const newBtn = document.createElement("button");
 
-    newBtn.id = 'newBtn';
+    newBtn.id = "newBtn";
     newBtn.className = "homebtn";
     newBtn.textContent = "Details";
     newBtn.classList.add("homebtn");

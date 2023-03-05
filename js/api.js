@@ -2,10 +2,21 @@ const requestUrl = "https://api.unsplash.com/search/photos?query=landmark&client
 
 const getBtn = document.querySelector(".homebtn");
 const landmarkDisplay = document.querySelector(".content img");
+const landmarkDesc = document.querySelector(".landmark-desc");
+const photographerName = document.querySelector(".photographer-name");
+const photoLink = document.querySelector(".photo-link");
+
+
+photoLink.style.display = "none";
 
 getBtn.addEventListener("click", async () => {
     let randomLandmark = await getNewLandmark();
-    landmarkDisplay.src = randomLandmark;
+    landmarkDisplay.src = randomLandmark.url;
+    landmarkDesc.textContent = "Description:" + " " + randomLandmark.description || "";
+    photographerName.textContent = "Photographer:" + " " + randomLandmark.photographer || "";
+    photoLink.href = randomLandmark.link || "#";
+    photoLink.style.display = "block";
+    
 });
 
 async function getNewLandmark() {
@@ -14,6 +25,11 @@ async function getNewLandmark() {
     .then((Response) => Response.json())
     .then((data) => {
         let postCard = data.results[ranNum];
-        return postCard.urls.regular;
+        return {
+            url: postCard.urls.regular,
+            description: postCard.alt_description,
+            photographer: postCard.user.name,
+            link: postCard.links.html
+        };
     });
 }
