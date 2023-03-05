@@ -28,35 +28,39 @@
           <a href="/" class="back-link"></a>
           <a href="/feed.html" class="detailsbtn">Back</a>
         </div>
-        <script>
-          const urlParms = new URLSearchParams(window.location.search);
-          const id = urlParms.get("id");
-          const requestUrl = "https://api.unsplash.com/photos/" + id + "?client_id=Xe5ZOVQDnEw6ksMMsanWY9E2OGfTqhGJpu3HAaVNXMg";
+    <script>
+
+        const urlParms = new URLSearchParams(window.location.search);
+        const id = urlParms.get("id");
+        const requestUrl = "https://api.unsplash.com/photos/" + id + "?client_id=Xe5ZOVQDnEw6ksMMsanWY9E2OGfTqhGJpu3HAaVNXMg";
       
-          fetch(requestUrl)
+        fetch(requestUrl)
             .then((response) => response.json())
             .then((data) => {
-              const imgDiv = document.querySelector(".details-img");
-              imgDiv.style.backgroundImage = "url(" + data.urls.regular + ")";
+                const pageTitle = document.querySelector("title")
+                pageTitle.textContent = data.alt_description;
+
+                const imgDiv = document.querySelector(".details-img");
+                imgDiv.style.backgroundImage = "url(" + data.urls.regular + ")";
       
-              const photographerName = document.querySelector(".photographer-name");
-              photographerName.classList.add("text");
-              photographerName.textContent = "Photographer: " + data.user.name;
+                const photographerName = document.querySelector(".photographer-name");
+                photographerName.classList.add("text");
+                photographerName.textContent = "Photographer: " + data.user.name;
       
-              const location = document.querySelector(".location");
-              location.classList.add("text");
-              location.textContent = "Location: " + (data.location.title || data.alt_description);
+                const location = document.querySelector(".location");
+                location.classList.add("text");
+                location.textContent = "Location: " + (data.location.title || data.alt_description);
       
-              const description = document.querySelector(".description");
-              description.classList.add("text");
-              description.textContent = "Description: " + (data.description || "No description available.");
+                const description = document.querySelector(".description");
+                description.classList.add("text");
+                description.textContent = "Description: " + (data.description || "No description available.");
             })
             
             .catch((error) => {
               console.log("Error: " + error);
             });
-        </script>
-      </main>
-      
+    </script>
+</main>
+
 </body>
 </html>
