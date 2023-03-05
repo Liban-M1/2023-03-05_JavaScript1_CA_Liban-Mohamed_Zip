@@ -1,1 +1,1 @@
-# JavaScript-_1_CA Post-Card Generator
+# JavaScript-_1_CA Post-Card Image Generator
