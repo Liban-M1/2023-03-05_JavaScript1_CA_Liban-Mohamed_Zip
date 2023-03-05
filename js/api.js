@@ -1,3 +1,5 @@
+
+// Unsplash API
 const requestUrl = "https://api.unsplash.com/search/photos?query=landmark&client_id=Xe5ZOVQDnEw6ksMMsanWY9E2OGfTqhGJpu3HAaVNXMg";
 
 const getBtn = document.querySelector(".homebtn");

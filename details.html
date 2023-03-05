@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <title>Post-Card Details</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>Post-Card Feed</h1>
+        <p></p>
+    </header>
+    <main>
+        <div class="details">
+            <div class="details-img"></div>
+            <p class="photograper-name"></p>
+            <a href="/" class="back-link"></a>
+        </div>
+        <script>
+            const urlParms = new URLSearchParams(window.location.search);
+            const id = urlParms.get("id");
+            const requestUrl = "https://api.unsplash.com/photos/" + id + "?client_id=Xe5ZOVQDnEw6ksMMsanWY9E2OGfTqhGJpu3HAaVNXMg";
+
+            fetch(requestUrl)
+            .then((response) => response.json())
+            .then((data) => {
+                const imgDiv = document.querySelector(".details-img");
+                imgDiv.style.backgroundImage = "url(" + data.urls.regular + ")";
+
+                const photographerName = document.querySelector(".photographer-name");
+                photographerName.textContent = "Photographer: " + data.user.name;
+            })
+            
+            .catch((error) => {
+                console.log("Error: " + error);
+            });
+        </script>
+    </main>
+</body>
+</html>
