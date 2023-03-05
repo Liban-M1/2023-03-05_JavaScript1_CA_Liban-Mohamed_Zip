@@ -1,3 +1,5 @@
+
+//Feed API
 document.addEventListener("DOMContentLoaded", function() {
     
     const postCardsDiv = document.querySelector(".post-cards");

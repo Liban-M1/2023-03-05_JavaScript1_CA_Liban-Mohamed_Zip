@@ -14,13 +14,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     newBtn.id = "newBtn";
     newBtn.className = "homebtn";
-    newBtn.textContent = "Details";
+    newBtn.textContent = "Explore more";
     newBtn.classList.add("homebtn");
 
-    document.body.appendChild(newBtn);
+    const link = document.createElement("a");
+    link.href = "feed.html";
+    link.appendChild(newBtn);
+
+
+    document.body.appendChild(link);
 
     const postCardDiv = document.querySelector(".post-card .content");
-    postCardDiv.appendChild(newBtn)
+    postCardDiv.appendChild(link)
 
     newBtnCreated = true;
     }

@@ -16,34 +16,47 @@
                 <li><a href="/contact.html">Contact</a></li>
             </ul>
         </nav>
-        <h1>Post-Card Feed</h1>
+        <h1>Post-Card Details</h1>
         <p></p>
     </header>
     <main>
         <div class="details">
-            <div class="details-img"></div>
-            <p class="photograper-name"></p>
-            <a href="/" class="back-link"></a>
+          <div class="details-img"></div>
+          <p class="photographer-name text"></p>
+          <p class="location text"></p>
+          <p class="description text"></p>
+          <a href="/" class="back-link"></a>
+          <a href="/feed.html" class="detailsbtn">Back</a>
         </div>
         <script>
-            const urlParms = new URLSearchParams(window.location.search);
-            const id = urlParms.get("id");
-            const requestUrl = "https://api.unsplash.com/photos/" + id + "?client_id=Xe5ZOVQDnEw6ksMMsanWY9E2OGfTqhGJpu3HAaVNXMg";
-
-            fetch(requestUrl)
+          const urlParms = new URLSearchParams(window.location.search);
+          const id = urlParms.get("id");
+          const requestUrl = "https://api.unsplash.com/photos/" + id + "?client_id=Xe5ZOVQDnEw6ksMMsanWY9E2OGfTqhGJpu3HAaVNXMg";
+      
+          fetch(requestUrl)
             .then((response) => response.json())
             .then((data) => {
-                const imgDiv = document.querySelector(".details-img");
-                imgDiv.style.backgroundImage = "url(" + data.urls.regular + ")";
-
-                const photographerName = document.querySelector(".photographer-name");
-                photographerName.textContent = "Photographer: " + data.user.name;
+              const imgDiv = document.querySelector(".details-img");
+              imgDiv.style.backgroundImage = "url(" + data.urls.regular + ")";
+      
+              const photographerName = document.querySelector(".photographer-name");
+              photographerName.classList.add("text");
+              photographerName.textContent = "Photographer: " + data.user.name;
+      
+              const location = document.querySelector(".location");
+              location.classList.add("text");
+              location.textContent = "Location: " + (data.location.title || data.alt_description);
+      
+              const description = document.querySelector(".description");
+              description.classList.add("text");
+              description.textContent = "Description: " + (data.description || "No description available.");
             })
             
             .catch((error) => {
-                console.log("Error: " + error);
+              console.log("Error: " + error);
             });
         </script>
-    </main>
+      </main>
+      
 </body>
 </html>
