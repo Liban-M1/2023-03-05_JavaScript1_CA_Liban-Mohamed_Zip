@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
     newBtn.classList.add("homebtn");
 
     const link = document.createElement("a");
-    link.href = "feed.html";
+    link.href = "index.html";
     link.appendChild(newBtn);
 
 
@@ -32,3 +32,4 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+// Not in use*

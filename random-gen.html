@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js"></script>
+    <title>Random Post-Card Generator</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>Random Post-Card Generator</h1>
+        <p>Click the button below to generate a random post-card from a random landmark around the world</p>
+    </header>
+    <main>
+        <div class="container">
+            <div class="post-card">
+                <div class="content"> 
+                    <img class="landmark" src="/images/postcard.jpeg">
+                    <button id="btn" name="btn" class="homebtn">Generate Post-Card</button>
+                    <p class="landmark-desc"></p>
+                    <p class="photographer-name"></p>
+                    <a target="_blank" class="photo-link">View on Unsplash</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/js/api.js"></script>
+</body>
+</html>
+
+// Not in use yet

@@ -156,6 +156,7 @@ header h1, p{
     border: 4px solid #bc785b;
     margin-bottom: 30px;
     background-size: contain;
+    cursor: pointer;
 }
 
 .details-img {
@@ -204,3 +205,4 @@ a.detailsbtn {
     font-size: large;
     color: #0d354b;
 }
+
